@@ -15,8 +15,9 @@ if is_test_script and not ENV['TM_FILE_IS_UNTITLED']
     lib_path  = File.join( *( path_ary[0..-2] +
                               [".."] * (path_ary.length - index - 1) ) +
                               ["lib"] )
+    rails_test_path = File.dirname(test_path)
     if File.exist? lib_path
-      cmd << "-I#{lib_path}:#{test_path}"
+      cmd << "-I#{lib_path}:#{test_path}:#{rails_test_path}"
     end
   end
 end
